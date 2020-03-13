@@ -5,8 +5,8 @@ def call(env)
     
     if req.path.match(/items/)
       item_name = req.path.split("/items/").last
-      if @@items.include?(item_name) 
-        item = @@items.find{|i| i.name == item_name}
+      item = @@items.find{|i| i.name == item_name}
+      if item != nil 
         resp.write "#{item.price}"
         resp.status = 200
       else
